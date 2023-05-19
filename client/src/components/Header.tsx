@@ -11,7 +11,7 @@ function Header() {
                 </>
             }
             homeLinkProps={{
-                href: '/',
+                to: '/',
                 title: 'Accueil',
             }}
         />

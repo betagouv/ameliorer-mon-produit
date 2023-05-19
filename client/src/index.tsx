@@ -1,14 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Home } from './pages/Home';
 import reportWebVitals from './reportWebVitals';
 import { startReactDsfr } from '@codegouvfr/react-dsfr/spa';
-startReactDsfr({ defaultColorScheme: 'system' });
+import { BrowserRouter, Link } from 'react-router-dom';
+import { Router } from './Router';
+
+startReactDsfr({ defaultColorScheme: 'system', Link });
+
+//Only in TypeScript projects
+declare module '@codegouvfr/react-dsfr/spa' {
+    interface RegisterLink {
+        Link: typeof Link;
+    }
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <React.StrictMode>
-        <Home />
+        <BrowserRouter>
+            <Router />
+        </BrowserRouter>
     </React.StrictMode>,
 );
 

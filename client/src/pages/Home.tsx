@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Table } from '@codegouvfr/react-dsfr/Table';
 
 function Home() {
-    const tableData = [['Audioconf', '57%']];
+    const tableData = [[<Link to="/product">Audioconf</Link>, '57%']];
     return (
         <div>
             <Header />
