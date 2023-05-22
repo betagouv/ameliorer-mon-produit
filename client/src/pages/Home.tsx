@@ -1,13 +1,22 @@
 import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Table } from '@codegouvfr/react-dsfr/Table';
+import { ProgressBar } from '../components/ProgressBar';
 
 function Home() {
-    const tableData = [[<Link to="/product">Audioconf</Link>, '57%']];
+    const headers = ['Produit', 'Sécurité', 'Accessibilité'];
+    const tableData = [
+        [
+            <Link to="/product">Audioconf</Link>,
+            <ProgressBar progress={57} />,
+            <ProgressBar progress={31} />,
+        ],
+    ];
+
     return (
         <div>
             <Header />
-            <Table data={tableData} caption="Produits référencés"></Table>
+            <Table headers={headers} data={tableData} caption="Produits référencés"></Table>
         </div>
     );
 }
