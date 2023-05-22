@@ -7,12 +7,10 @@ const app = Express();
 
 app.use(cors());
 
-app.use(Express.json());
+app.use(Express.static(path.join(__dirname, '..', 'src', 'client', 'build')));
 
-app.use(Express.static(path.join(__dirname, '..', 'client', 'build')));
-
-app.get('/client/*', (_, res: Response) => {
-    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+app.get('/*', (_, res: Response) => {
+    res.sendFile(path.join(__dirname, '..', 'src', 'client', 'build', 'index.html'));
 });
 
 app.listen(3000, async () => {
