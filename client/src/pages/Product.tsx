@@ -1,32 +1,54 @@
 import { Table } from '@codegouvfr/react-dsfr/Table';
 import { Header } from '../components/Header';
-
-const data = {
-    security: {
-        human: {
-            SECRET_LEAK_MONITORING: true,
-            SECRET_LEAK_AUTOMATION: false,
-        },
-        software: {
-            DEPENDENCIES_SCAN: true,
-            SOURCE_CODE_SCAN: true,
-            HTTPS_ENABLED: true,
-            HTTPS_SERVER_REDIRECTION_ENABLED: true,
-            HTTPS_CLIENT_REDIRECTION_ENABLED: false,
-            MALWARE_SCAN: false,
-            CSP_IMPLEMENTED: true,
-        },
-    },
-    accessibility: {},
-};
+import { Link, useParams } from 'react-router-dom';
+import { ProgressBar } from '../components/ProgressBar';
 
 function Product() {
+    const params = useParams();
+    const rawData = computeRawData();
+    const tableData = formatTableData(rawData);
     return (
         <div>
             <Header />
-            <Table data={[]}></Table>
+            <Table data={tableData}></Table>
         </div>
     );
+
+    function computeRawData() {
+        const { sub1 } = params;
+        if (sub1) {
+            switch (sub1) {
+                case 'security':
+                    return [
+                        {
+                            title: 'Sécurité du processus de développement',
+                            path: `/measures`,
+                            value: 21,
+                        },
+                        {
+                            title: "Sécurité de l'application",
+                            path: `/measures`,
+                            value: 33,
+                        },
+                    ];
+                case 'accessibility':
+                    return [];
+                default:
+                    throw new Error(`La sous-catégorie 1 ${sub1} n'existe pas`);
+            }
+        }
+        return [
+            { title: 'Sécurité', path: `security`, value: 90 },
+            { title: 'Accessibilité', path: `accessibility`, value: 20 },
+        ];
+    }
+
+    function formatTableData(rawData: Array<{ title: string; path?: string; value: number }>) {
+        return rawData.map((row) => {
+            const element = row.path ? <Link to={row.path}>{row.title}</Link> : row.title;
+            return [element, <ProgressBar progress={row.value} />];
+        });
+    }
 }
 
 export { Product };

@@ -7,7 +7,7 @@ function Home() {
     const headers = ['Produit', 'Sécurité', 'Accessibilité'];
     const tableData = [
         [
-            <Link to="/product">Audioconf</Link>,
+            <Link to="/products/audioconf">Audioconf</Link>,
             <ProgressBar progress={57} />,
             <ProgressBar progress={31} />,
         ],

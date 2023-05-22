@@ -4,9 +4,9 @@ function ProgressBar(props: { progress: number }) {
     return (
         <Progress
             completed={props.progress}
-            borderRadius="2px"
+            borderRadius="4px"
             labelSize="12px"
-            width="100px"
+            width="200px"
             bgColor="#000091"
         />
     );
