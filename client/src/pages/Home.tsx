@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Header } from '../components/Header';
 import { Table } from '@codegouvfr/react-dsfr/Table';
 import { ProgressBar } from '../components/ProgressBar';
+import { Page } from '../components/Page';
 
 function Home() {
     const headers = ['Produit', 'Sécurité', 'Accessibilité'];
@@ -14,10 +14,9 @@ function Home() {
     ];
 
     return (
-        <div>
-            <Header />
+        <Page>
             <Table headers={headers} data={tableData} caption="Produits référencés"></Table>
-        </div>
+        </Page>
     );
 }
 

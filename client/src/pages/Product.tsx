@@ -1,17 +1,16 @@
 import { Table } from '@codegouvfr/react-dsfr/Table';
-import { Header } from '../components/Header';
 import { Link, useParams } from 'react-router-dom';
 import { ProgressBar } from '../components/ProgressBar';
+import { Page } from '../components/Page';
 
 function Product() {
     const params = useParams();
     const rawData = computeRawData();
     const tableData = formatTableData(rawData);
     return (
-        <div>
-            <Header />
+        <Page>
             <Table data={tableData}></Table>
-        </div>
+        </Page>
     );
 
     function computeRawData() {

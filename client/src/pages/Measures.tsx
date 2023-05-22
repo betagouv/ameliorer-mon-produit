@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Table from '@codegouvfr/react-dsfr/Table';
-import { Header } from '../components/Header';
 import { ProgressBar } from '../components/ProgressBar';
+import { Page } from '../components/Page';
 
 function Measures() {
     const data = computeData();
     return (
-        <div>
-            <Header />
+        <Page>
             <Table data={data} caption="Mesures"></Table>
-        </div>
+        </Page>
     );
 
     function computeData() {

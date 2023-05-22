@@ -1,11 +1,11 @@
 import React from 'react';
-import { Header } from '../components/Header';
+import { Page } from '../components/Page';
 
 function Measure() {
     return (
-        <div>
-            <Header />
-        </div>
+        <Page>
+            <div />
+        </Page>
     );
 }
 

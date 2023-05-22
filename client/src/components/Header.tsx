@@ -3,13 +3,7 @@ import { Header as DSFRHeader } from '@codegouvfr/react-dsfr/Header';
 function Header() {
     return (
         <DSFRHeader
-            brandTop={
-                <>
-                    AMÉLIORER MON
-                    <br />
-                    PRODUIT
-                </>
-            }
+            brandTop={<>DASHLORD</>}
             homeLinkProps={{
                 to: '/',
                 title: 'Accueil',
